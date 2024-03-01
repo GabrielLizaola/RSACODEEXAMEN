@@ -28,7 +28,7 @@ namespace ProyectoLogin.Recursos
             int i = 0;
             foreach (char c in clave)
             {
-                mensajeCifrado[i] = (int)c; 
+                mensajeCifrado[i] = (int)c; // Use ASCII code directly
                 i++;
             }
 
@@ -52,7 +52,7 @@ namespace ProyectoLogin.Recursos
             long n = p * q;
             long r = (p - 1) * (q - 1);
 
-            long d = ModInverse(e, r); 
+            long d = ModInverse(e, r); // Calcular el inverso multiplicativo de e módulo r
 
             string[] partes = claveCifrada.Split(' ');
 
@@ -68,6 +68,7 @@ namespace ProyectoLogin.Recursos
                     }
                     else
                     {
+                        // Si una parte no puede ser convertida a un número, puedes manejar el error según sea necesario
                     }
                 }
             }
@@ -84,6 +85,7 @@ namespace ProyectoLogin.Recursos
             return string.Concat(mensajeDescifrado);
         }
 
+        // Método para calcular el inverso multiplicativo módulo m
         public static long ModInverse(long a, long m)
         {
             for (long x = 1; x < m; x++)
